@@ -1,6 +1,6 @@
 from flask import Flask, abort, request
 from tempfile import NamedTemporaryFile
-import whisper
+import whisperx
 import torch
 
 # Checking if NVIDIA GPU is available
@@ -17,7 +17,7 @@ def hello():
     return "Whisper Hello World!"
 
 
-@app.route('/whisper', methods=['POST'])
+@app.route('/whisperx', methods=['POST'])
 def handler():
     if not request.files:
         # If the user didn't submit any files, return a 400 (Bad Request) error.
