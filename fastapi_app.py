@@ -1,7 +1,7 @@
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import JSONResponse, RedirectResponse
 from tempfile import NamedTemporaryFile
-import whisper
+import whisperx
 import torch
 from typing import List
 
@@ -14,7 +14,7 @@ model = whisper.load_model("base", device=DEVICE)
 
 app = FastAPI()
 
-@app.post("/whisper/")
+@app.post("/whisperx/")
 async def handler(files: List[UploadFile] = File(...)):
     if not files:
         raise HTTPException(status_code=400, detail="No files were provided")
